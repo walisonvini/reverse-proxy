@@ -9,7 +9,7 @@ services:
     volumes:
       - ./docker/nginx/conf.d:/etc/nginx/conf.d
       - /etc/letsencrypt:/etc/letsencrypt:ro
-      - ./cryptkeeper/static:/app/cryptkeeper_static
+      - ../crypt-keeper/static:/app/cryptkeeper_static
     networks:
       - reverse_proxy
 
