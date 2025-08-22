@@ -1,0 +1,17 @@
+services:
+  nginx:
+    image: nginx:stable
+    container_name: reverse_proxy_nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    networks:
+      - reverse_proxy
+
+networks:
+  reverse_proxy:
+    driver: bridge
