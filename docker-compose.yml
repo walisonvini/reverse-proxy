@@ -10,6 +10,7 @@ services:
       - ./docker/nginx/conf.d:/etc/nginx/conf.d
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - ../crypt-keeper/static:/app/cryptkeeper_static
+      - ../dashboard:/var/www/html
     networks:
       - reverse_proxy
 
