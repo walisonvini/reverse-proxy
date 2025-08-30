@@ -11,10 +11,15 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - ../crypt-keeper/static:/app/cryptkeeper_static
       - ../dashboard:/var/www/html
+      - dashboard_build:/var/www/html/public/build:ro
     networks:
       - reverse_proxy
+      - proxy-net
 
 networks:
   reverse_proxy:
     external: true
     name: proxy-net
+
+volumes:
+  dashboard_build:
