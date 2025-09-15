@@ -7,10 +7,10 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d:ro
       - /etc/letsencrypt:/etc/letsencrypt:ro
-      - ../crypt-keeper/static:/app/cryptkeeper_static
-      - dashboard_dashboard_build:/var/www/html/public/build:ro
+      - ../crypt-keeper/static:/app/cryptkeeper_static:ro
+      - dashboard_build_assets:/var/www/html/public/build:ro
     networks:
       - reverse_proxy
 
@@ -20,5 +20,5 @@ networks:
     name: proxy-net
 
 volumes:
-  dashboard_dashboard_build:
+  dashboard_build_assets:
     external: true
