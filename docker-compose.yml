@@ -9,8 +9,6 @@ services:
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
-      - ../crypt-keeper/static:/app/cryptkeeper_static:ro
-      - ../dashboard/public:/var/www/html/public:ro
     networks:
       - proxy-net
 
